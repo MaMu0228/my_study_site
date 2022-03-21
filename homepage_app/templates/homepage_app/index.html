@@ -2,9 +2,103 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Ma_Mu Site</title>
+    <style>
+    .sites{
+    color:red;
+    }
+    .display-users{
+    background-color:#F4F7FC;
+    }
+    .siteBtn{
+    pad:5px;
+    text-align:center;
+    width:300px;
+    height:30px;
+    border:4px;
+    }
+   main{
+
+
+   }
+    #save-user-data{
+    position:fixed;
+    top:50px;
+    right:10px;
+    }
+
+    </style>
 </head>
 <body>
-<h1>hi brother</h1>
+
+<header>
+    <button id="homepgBtn" class="siteBtn">
+        <a> Home Page
+    </button>
+    <button id="toDoListBtn" class="siteBtn">
+        GO to "To do list" site
+    </button>
+    <button id="restaurantBtn" class="siteBtn">
+        Go to "good restaurant share site"
+    </button>
+
+</header>
+
+<main>
+<br>
+    <hr>
+    <br>
+    <div id="save-user-data">
+        <select id="selectPage">
+            <option value="Homepage" class="sites">Home Page</option>
+            <option value="To-do-list site" class="sites">To-do-list site</option>
+            <option value="GoodRestaurant site" class="sites">Good Restaurant site</option>
+            <option value="Excel site" class="sites">Excel site</option>
+        </select>
+
+        <form action="./save" method="POST" class="sendDatas">{% csrf_token %}
+            <input type="hidden" id="dataId" name="dataId" value="">
+            <input type="text" id="name" name="name" placeholder="write your name">
+            <input type="number" id="ages" name="ages" placeholder="write you ages">
+            <br>
+            <span>choice Male or Female</span>
+            <input type="radio" id="male" name="sex" value="male">
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="sex" value="female">
+            <label for="female">Female</label>
+            <span class="input-group-btn">
+                <button class="btn" type="submit" onclick="saved()">Done!</button>
+            </span>
+    </form>
+
+</div>
+
+    <div id="display">
+        <h3 id="display-title">All User datas in server</h3>
+        {% for data in datas %}
+            <div class="display-users">
+                {{ data.name }}
+                {{ data.sex }}
+                {{ data.ages}}
+            </div>
+        <br>
+        {% endfor %}
+    </div>
+
+</main>
+
+
+
+<footer>
+
+
+
+</footer>
+
+<script>
+    function saved(){
+    Window.alert("successfully saved!")
+    }
+</script>
 </body>
 </html>
