@@ -7,7 +7,7 @@ from .models import *
 def index(request):
 	datas = Data.objects.all()
 	content = {'datas': datas}
-	return render(request, 'homepage_app/index.html', content)
+	return render(request, 'homepage_app/index2.html', content)
 	# return HttpResponse("hi")
 
 def saveData(request):

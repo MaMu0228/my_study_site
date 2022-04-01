@@ -2,7 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <!-- bootstrap css-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>Ma_Mu Site</title>
+
     <style>
     .sites{
     color:red;
@@ -10,12 +16,8 @@
     .display-users{
     background-color:#F4F7FC;
     }
-    .siteBtn{
-    pad:5px;
-    text-align:center;
-    width:300px;
-    height:30px;
-    border:4px;
+    .pagesBtn{
+    left:1000px;
     }
    main{
 
@@ -32,46 +34,41 @@
 <body>
 
 <header>
-    <button id="homepgBtn" class="siteBtn">
-        <a> Home Page
+    <div id="pagesBtn">
+    <button id="homepageBtn" type="button" class="btn btn-outline-primary">
+        Homepage
     </button>
-    <button id="toDoListBtn" class="siteBtn">
-        GO to "To do list" site
+    <button id="todolistBtn" type="button" class="btn btn-outline-secondary">
+        To do list page
     </button>
-    <button id="restaurantBtn" class="siteBtn">
-        Go to "good restaurant share site"
+    <button id="restaurantBtn" type="button" class="btn btn-outline-success">
+        Good restaurant share page
     </button>
-
+    </div>
 </header>
 
 <main>
 <br>
     <hr>
     <br>
-    <div id="save-user-data">
-        <select id="selectPage">
-            <option value="Homepage" class="sites">Home Page</option>
-            <option value="To-do-list site" class="sites">To-do-list site</option>
-            <option value="GoodRestaurant site" class="sites">Good Restaurant site</option>
-            <option value="Excel site" class="sites">Excel site</option>
-        </select>
 
-        <form action="./save" method="POST" class="sendDatas">{% csrf_token %}
-            <input type="hidden" id="dataId" name="dataId" value="">
-            <input type="text" id="name" name="name" placeholder="write your name">
-            <input type="number" id="ages" name="ages" placeholder="write you ages">
-            <br>
-            <span>choice Male or Female</span>
-            <input type="radio" id="male" name="sex" value="male">
-            <label for="male">Male</label>
-            <input type="radio" id="female" name="sex" value="female">
-            <label for="female">Female</label>
-            <span class="input-group-btn">
-                <button class="btn" type="submit" onclick="saved()">Done!</button>
-            </span>
-    </form>
+    <form>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text">
+        이메일을 입력하세요
+    </div>
 
-</div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
 
     <div id="display">
         <h3 id="display-title">All User datas in server</h3>
